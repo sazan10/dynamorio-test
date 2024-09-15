@@ -37,7 +37,7 @@ jobs:
           cd D:/a/dynamorio-test/dynamorio-test/DynamoRIO-Windows-10.93.19979/bin64
 
           # Use DynamoRIO to run chrome.exe with -persist
-          timeout 20 ./drrun.exe -persist -- "C:/Program Files/Google/Chrome/Application/chrome.exe" --headless --disable-gpu --single-process --remote-debugging-port=9222 D:/a/dynamorio-test/dynamorio-test/close.html
+          ./drrun.exe -persist -- "C:/Program Files/Google/Chrome/Application/chrome.exe" "D:/a/dynamorio-test/dynamorio-test/close.html"
           
       # Step 5: Monitor for the hang issue
       - name: Check for hang or errors
