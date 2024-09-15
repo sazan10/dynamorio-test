@@ -15,10 +15,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      # # Step 2: Set up Google Chrome
-      # - name: Install Google Chrome
-      #   run: |
-      #     choco install googlechrome --no-progress
+      # Step 2: Set up Google Chrome
+      - name: Install Google Chrome
+        run: |
+          choco install googlechrome --no-progress
 
       # Step 3: Set up DynamoRIO
       - name: Download and install DynamoRIO
