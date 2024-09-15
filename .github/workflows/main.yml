@@ -27,6 +27,7 @@ jobs:
           tar -xvzf DynamoRIO-Windows-10.93.19979.zip
           echo %CD%
           set DYNAMORIO_HOME=%CD%/DynamoRIO-Windows-10.93.19979
+          echo %CH%
           dir
 
 
