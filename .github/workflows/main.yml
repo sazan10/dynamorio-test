@@ -34,7 +34,7 @@ jobs:
         working-directory: ${{ github.workspace }}
         run: |
           # Navigate to DynamoRIO bin directory
-          cd D:/a/dynamorio-test/dynamorio-test/DynamoRIO-Windows-10.93.19979/bin64
+          cd D:/a/dynamorio-test/dynamorio-test/DynamoRIO-Windows-10.93.19979/bin32
 
           # Use DynamoRIO to run chrome.exe with -persist
           ./drrun.exe -persist -- "C:/Program Files/Google/Chrome/Application/chrome.exe" "D:/a/dynamorio-test/dynamorio-test/close.html"
