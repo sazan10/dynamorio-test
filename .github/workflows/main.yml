@@ -8,7 +8,7 @@ on:
 
 jobs:
   reproduce-hang:
-    runs-on: windows-latest
+    runs-on: windows-2019
 
     steps:
       # # Step 1: Checkout the repository
