@@ -1,0 +1,43 @@
+name: Reproduce Chrome Hang with DynamoRIO
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  reproduce-hang:
+    runs-on: windows-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Step 2: Set up Google Chrome
+      - name: Install Google Chrome
+        run: |
+          choco install googlechrome --no-progress
+
+      # Step 3: Set up DynamoRIO
+      - name: Download and install DynamoRIO
+        run: |
+          curl -LO https://github.com/DynamoRIO/dynamorio/releases/download/cronbuild-10.93.19979/DynamoRIO-Windows-10.93.19979.zip
+          tar -xvzf DynamoRIO-Windows-10.93.19979.zip
+          set DYNAMORIO_HOME=%cd%/DynamoRIO-Windows-10.93.19979.
+
+      # Step 4: Run Chrome under DynamoRIO with the -persist option
+      - name: Run Chrome with DynamoRIO
+        run: |
+          # Navigate to DynamoRIO bin directory
+          cd %DYNAMORIO_HOME%/bin64
+
+          # Use DynamoRIO to run chrome.exe with -persist
+          ./drrun.exe -persist -- "C:/Program Files/Google/Chrome/Application/chrome.exe" --headless --disable-gpu --remote-debugging-port=9222 path/to/close.html
+          
+      # Step 5: Monitor for the hang issue
+      - name: Check for hang or errors
+        run: |
+          # Check if Chrome is still running or if there was a hang
+          tasklist | findstr chrome
