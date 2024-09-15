@@ -28,8 +28,6 @@ jobs:
           echo %CD%
           set DYNAMORIO_HOME=%CD%/DynamoRIO-Windows-10.93.19979
           echo %DYNAMORIO_HOME%
-          dir
-
 
       # Step 4: Run Chrome under DynamoRIO with the -persist option
       - name: Run Chrome with DynamoRIO
