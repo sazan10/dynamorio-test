@@ -27,7 +27,7 @@ jobs:
         
           curl -LO https://github.com/DynamoRIO/dynamorio/releases/download/cronbuild-10.93.19979/DynamoRIO-Windows-10.93.19979.zip
           tar -xvzf DynamoRIO-Windows-10.93.19979.zip
-          echo "Running in directory %CD%"
+          dir
           set DYNAMORIO_HOME="%CD%/DynamoRIO-Windows-10.93.19979"
           echo "%DYNAMORIO_HOME%"
 
