@@ -11,14 +11,14 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      # Step 1: Checkout the repository
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      # # Step 1: Checkout the repository
+      # - name: Checkout repository
+      #   uses: actions/checkout@v2
 
-      # Step 2: Set up Google Chrome
-      - name: Install Google Chrome
-        run: |
-          choco install googlechrome --no-progress
+      # # Step 2: Set up Google Chrome
+      # - name: Install Google Chrome
+      #   run: |
+      #     choco install googlechrome --no-progress
 
       # Step 3: Set up DynamoRIO
       - name: Download and install DynamoRIO
@@ -27,7 +27,7 @@ jobs:
           tar -xvzf DynamoRIO-Windows-10.93.19979.zip
           echo %CD%
           set DYNAMORIO_HOME=%CD%/DynamoRIO-Windows-10.93.19979
-          echo %CH%
+          echo %DYNAMORIO_HOME%
           dir
 
 
