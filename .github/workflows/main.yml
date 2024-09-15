@@ -11,9 +11,9 @@ jobs:
     runs-on: windows-2019
 
     steps:
-      # # Step 1: Checkout the repository
-      # - name: Checkout repository
-      #   uses: actions/checkout@v2
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
       # # Step 2: Set up Google Chrome
       # - name: Install Google Chrome
