@@ -22,7 +22,9 @@ jobs:
 
       # Step 3: Set up DynamoRIO
       - name: Download and install DynamoRIO
+        working-directory: ${{ github.workspace }}
         run: |
+        
           curl -LO https://github.com/DynamoRIO/dynamorio/releases/download/cronbuild-10.93.19979/DynamoRIO-Windows-10.93.19979.zip
           tar -xvzf DynamoRIO-Windows-10.93.19979.zip
           echo Running in directory "%CD%"
@@ -31,6 +33,7 @@ jobs:
 
       # Step 4: Run Chrome under DynamoRIO with the -persist option
       - name: Run Chrome with DynamoRIO
+        working-directory: ${{ github.workspace }}
         run: |
           # Navigate to DynamoRIO bin directory
           cd %DYNAMORIO_HOME%/bin64
