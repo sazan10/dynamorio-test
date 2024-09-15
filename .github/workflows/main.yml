@@ -25,7 +25,10 @@ jobs:
         run: |
           curl -LO https://github.com/DynamoRIO/dynamorio/releases/download/cronbuild-10.93.19979/DynamoRIO-Windows-10.93.19979.zip
           tar -xvzf DynamoRIO-Windows-10.93.19979.zip
-          set DYNAMORIO_HOME=%cd%/DynamoRIO-Windows-10.93.19979.
+          echo %CD%
+          set DYNAMORIO_HOME=%cd%/DynamoRIO-Windows-10.93.19979
+          dir
+
 
       # Step 4: Run Chrome under DynamoRIO with the -persist option
       - name: Run Chrome with DynamoRIO
