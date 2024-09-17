@@ -25,8 +25,8 @@ jobs:
         working-directory: ${{ github.workspace }}
         run: |
         
-          curl -LO https://github.com/DynamoRIO/dynamorio/releases/download/cronbuild-10.93.19979/DynamoRIO-Windows-10.93.19979.zip
-          tar -xvzf DynamoRIO-Windows-10.93.19979.zip
+          curl -LO https://github.com/DynamoRIO/dynamorio/releases/download/cronbuild-10.92.19881/DynamoRIO-Windows-10.92.19881.zip
+          tar -xvzf DynamoRIO-Windows-10.92.19881.zip
           dir
 
       # Step 4: Run Chrome under DynamoRIO with the -persist option
@@ -37,7 +37,7 @@ jobs:
           # cd D:/a/dynamorio-test/dynamorio-test/
 
           # Use DynamoRIO to run chrome.exe with -persist
-          ./D:/a/dynamorio-test/dynamorio-test/DynamoRIO-Windows-10.93.19979/bin/drrun.exe -- "C:\Program Files\Google\Chrome\Application\chrome.exe" "D:\a\dynamorio-test\dynamorio-test\close.html"
+          ./D:/a/dynamorio-test/dynamorio-test/DynamoRIO-Windows-10.92.19881/bin/drrun.exe -- "C:\Program Files\Google\Chrome\Application\chrome.exe" "D:\a\dynamorio-test\dynamorio-test\close.html"
           
       # Step 5: Monitor for the hang issue
       - name: Check for hang or errors
