@@ -37,7 +37,7 @@ jobs:
           # cd D:/a/dynamorio-test/dynamorio-test/
 
           # Use DynamoRIO to run chrome.exe with -persist
-          .\DynamoRIO-Windows-10.93.19979\bin\drrun.exe -- "C:\Program Files\Google\Chrome\Application\chrome.exe" "D:\a\dynamorio-test\dynamorio-test\close.html"
+          .\D:\a\dynamorio-test\dynamorio-test\DynamoRIO-Windows-10.93.19979\bin\drrun.exe -- "C:\Program Files\Google\Chrome\Application\chrome.exe" "D:\a\dynamorio-test\dynamorio-test\close.html"
           
       # Step 5: Monitor for the hang issue
       - name: Check for hang or errors
