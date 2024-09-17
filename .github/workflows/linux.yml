@@ -1,0 +1,32 @@
+name: Reproduce App Hang in Chrome linux
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-chrome-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Chrome
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y google-chrome-stable
+
+    - name: Download DynamoRIO
+      run: |
+        wget https://github.com/DynamoRIO/dynamorio/releases/download/cronbuild-10.91.19860/DynamoRIO-Linux-10.91.19860.tar.gz
+        tar -xvzf DynamoRIO-Linux-10.91.19860.tar.gz
+        export DYNAMORIO_HOME=$PWD/DynamoRIO-Linux-10.91.19860
+        export PATH=$PATH:$DYNAMORIO_HOME/bin64
+
+    - name: Run Chrome test
+      run: |
+        google-chrome --headless --disable-gpu --remote-debugging-port=9222 --user-data-dir=/tmp/test "file://$PWD/close.html"
+        # Replace with DrMemory or DynamoRIO invocation if needed
+        $DYNAMORIO_HOME/bin64/drrun -persist -- google-chrome file://$PWD/close.html
