@@ -27,6 +27,6 @@ jobs:
 
     - name: Run Chrome test
       run: |
-        google-chrome --headless --disable-gpu --remote-debugging-port=9222 --user-data-dir=/tmp/test "file://$PWD/close.html"
+        # google-chrome --headless --disable-gpu --remote-debugging-port=9222 --user-data-dir=/tmp/test "file://$PWD/close.html"
         # Replace with DrMemory or DynamoRIO invocation if needed
         $DYNAMORIO_HOME/bin64/drrun -persist -- google-chrome file://$PWD/close.html
