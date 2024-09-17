@@ -25,8 +25,9 @@ jobs:
         working-directory: ${{ github.workspace }}
         run: |
         
-          curl -LO https://github.com/DynamoRIO/dynamorio/releases/download/cronbuild-10.92.19881/DynamoRIO-Windows-10.92.19881.zip
-          tar -xvzf DynamoRIO-Windows-10.92.19881.zip
+          curl -LO https://github.com/DynamoRIO/dynamorio/releases/download/cronbuild-10.93.19944/DynamoRIO-Windows-10.93.19944.zip
+
+          tar -xvzf DynamoRIO-Windows-10.93.19944.zip
           dir
 
       # Step 4: Run Chrome under DynamoRIO with the -persist option
@@ -38,7 +39,7 @@ jobs:
 
           # Use DynamoRIO to run chrome.exe with -persist
           # ./DynamoRIO-Windows-10.92.19881/dynamorio/bin64/drrun.exe -- "C:\Program Files\Google\Chrome\Application\chrome.exe" "D:\a\dynamorio-test\dynamorio-test\close.html"
-          cd D:/a/dynamorio-test/dynamorio-test/DynamoRIO-Windows-10.92.19881/dynamorio/bin64
+          cd D:/a/dynamorio-test/dynamorio-test/DynamoRIO-Windows-10.93.19944/bin64
           # Use DynamoRIO to run chrome.exe with -persist
           for ($i = 0; $i -lt 100; $i++) {
           ./drrun.exe -persist -- "C:/Program Files/Google/Chrome/Application/chrome.exe" --headless --disable-gpu --single-process --remote-debugging-port=9222 D:/a/dynamorio-test/dynamorio-test/close.html
