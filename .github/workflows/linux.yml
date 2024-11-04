@@ -31,7 +31,7 @@ jobs:
         mkdir -p ./dyna_logs
         # google-chrome --headless --disable-gpu --remote-debugging-port=9222 --user-data-dir=/tmp/test "file://$PWD/close.html"
         # Replace with DrMemory or DynamoRIO invocation if needed
-        timeout 10s $DYNAMORIO_HOME/bin64/drrun -persist -- google-chrome file://$PWD/close.html -logdir "./dyna_logs/
+        timeout 10s $DYNAMORIO_HOME/bin64/drrun -persist -- google-chrome file://$PWD/close.html -logdir "./dyna_logs/"
     - name: Upload dynamorio reports
       uses: actions/upload-artifact@v4
       with:
